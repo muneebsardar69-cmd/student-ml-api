@@ -27,7 +27,7 @@ def test_health_endpoint(client):
     data = response.get_json()
     
     # Verify response contains correct fields
-    assert data['status'] == 'wrong'
+    assert data['status'] == 'healthy'
     assert data['application'] == 'student-ml-api'
     assert data['version'] == '1.0.0'
 
