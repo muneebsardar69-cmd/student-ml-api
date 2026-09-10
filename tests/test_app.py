@@ -14,22 +14,16 @@ def client():
 
 
 def test_health_endpoint(client):
-    """
-    Test that GET /health returns correct status and version.
-    Expected status code: 200
-    """
+    """Test that GET /health returns correct status and version."""
     response = client.get('/health')
     
-    # Check status code
     assert response.status_code == 200
-    
-    # Get JSON data from response
     data = response.get_json()
     
-    # Verify response contains correct fields
     assert data['status'] == 'healthy'
     assert data['application'] == 'student-ml-api'
-    assert data['version'] == '1.0.0'
+    assert data['application_version'] == '1.1.0'
+    assert data['model_version'] == 'model-1'
 
 
 def test_predict_valid_input(client):
