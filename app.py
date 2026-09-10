@@ -7,14 +7,12 @@ app = Flask(__name__)
 # Health check endpoint
 @app.route('/health', methods=['GET'])
 def health():
-    """
-    Health check endpoint that returns the application status.
-    Returns application name and version.
-    """
+    """Health check endpoint with model metadata."""
     response = {
         "status": "healthy",
         "application": "student-ml-api",
-        "version": "1.0.0"
+        "application_version": "1.1.0",
+        "model_version": "model-1"
     }
     return jsonify(response), 200
 
